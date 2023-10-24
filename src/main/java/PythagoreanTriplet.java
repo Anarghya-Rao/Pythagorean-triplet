@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 class PythagoreanTriplet {
     private int a;
@@ -10,6 +11,25 @@ class PythagoreanTriplet {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        if(obj == null || (obj.getClass() != this.getClass())){
+            return false;
+        }
+
+        PythagoreanTriplet pt = (PythagoreanTriplet) obj;
+
+        return ((pt.a == this.a) && (pt.b == this.b) && (pt.c == this.c));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b, c);
     }
 
     static TripletListBuilder makeTripletsList() {
